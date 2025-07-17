@@ -1,0 +1,104 @@
+.tab {
+    position: relative;
+    display: flex;
+    align-items: center; // vertical center
+    height: 100vh; // full viewport height
+
+    input {
+        appearance: none;
+        display: none;
+    }
+
+    .icon {
+        display: flex;
+        flex-direction: column;
+        justify-content: center; // center icons vertically
+        align-items: center;
+        gap: 20px; // spacing between icons
+        position: relative;
+        height: 100%; // match .tab height
+
+        label {
+            width: 80px;
+            height: 80px;
+            text-align: center;
+            line-height: 90px;
+            font-size: 2em;
+            color: $fontGreen;
+            opacity: 0.75;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            z-index: 2;
+        }
+    }
+}
+
+.tab input:nth-child(1):checked ~ .icon label:nth-child(1),
+.tab input:nth-child(2):checked ~ .icon label:nth-child(2),
+.tab input:nth-child(3):checked ~ .icon label:nth-child(3),
+.tab input:nth-child(4):checked ~ .icon label:nth-child(4)
+{
+    opacity: 1;
+    transform: translateY(-10px);
+    color: $fontWhite;
+}
+// .indicator{
+//     position: absolute;
+//     width: 78px;
+//     height: 78px;
+//     top: 0;
+//     left: 0;
+//     background-color: $fontGreen;
+//     border-radius: 8px;
+//     transition: all 0.3s ease;
+// }
+.tab input:nth-child(1):checked ~ .icon .indicator
+{
+    top: 0;
+}
+.tab input:nth-child(2):checked ~ .icon .indicator
+{
+    top: 25%;
+}
+.tab input:nth-child(3):checked ~ .icon .indicator
+{
+    top: 50%;
+}
+.tab input:nth-child(4):checked ~ .icon .indicator
+{
+    top: 75%;
+}
+
+// content style start 
+.content
+{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    width: 100%;
+    height: 100vh;
+    // background: rgb(145, 166, 167, 0.28);
+    border-radius: 20px;
+}
+.content .contentBox {
+    position: absolute;
+    inset: 0;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // vertical center
+    align-items: flex-start; // or `center` if you want full center
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+
+.tab input:nth-child(1):checked ~ .content .contentBox:nth-child(1),
+.tab input:nth-child(2):checked ~ .content .contentBox:nth-child(2),
+.tab input:nth-child(3):checked ~ .content .contentBox:nth-child(3),
+.tab input:nth-child(4):checked ~ .content .contentBox:nth-child(4)
+{
+    opacity: 1;
+    visibility: visible;
+}

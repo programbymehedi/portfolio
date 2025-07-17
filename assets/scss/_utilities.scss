@@ -1,0 +1,153 @@
+// poppin font cdn 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap');
+
+// -------------------------------------
+// COLOR VARIABLES
+// -------------------------------------
+$primary-bg:     #040D12;
+$scondary-bg:    #183D3D;
+$thirdary-bg:    #5C8374;
+$fourthary-bg:   #93B1A6;
+$transparent-bg:   #183d3d2a;
+
+$fontWhite:   #FFFFFF;
+$fontBlack:   #040D12;
+$fontGreen:   #183D3D;
+
+// -------------------------------------
+// FONT VARIABLES
+// -------------------------------------
+$font-S:    400;
+$font-M:    600;
+$font-L:    700;
+$font-XL:   900;
+
+// -------------------------------------
+// Background color classes
+// -------------------------------------
+.bg-primary { background: $transparent-bg;}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: $primary-bg;
+}
+body,p {
+    font-family: "Poppins", sans-serif;
+    font-weight: $font-S;
+    color: $fontWhite;
+    line-height: 1.5em;
+    margin: 0 0 15px;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: $fontWhite;
+    font-weight: $font-L;
+    line-height: 1.2em;
+    margin: 0 0 15px;   
+}
+// -------------------------------------
+// 1. Container
+// -------------------------------------
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  @media (min-width: 576px) { max-width: 540px; }
+  @media (min-width: 768px) { max-width: 720px; }
+  @media (min-width: 992px) { max-width: 960px; }
+  @media (min-width: 1200px) { max-width: 1140px; }
+}
+// -------------------------------------
+// 2. Row
+// -------------------------------------
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+// -------------------------------------
+// 3. Column base
+// -------------------------------------
+[class*="col-"] {
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+// -------------------------------------
+// 4. Column widths
+// -------------------------------------
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    flex: 0 0 percentage($i / 12);
+    max-width: percentage($i / 12);
+  }
+
+  @each $break, $size in $breakpoints {
+    @media (min-width: #{$size}) {
+      .col-#{$break}-#{$i} {
+        flex: 0 0 percentage($i / 12);
+        max-width: percentage($i / 12);
+      }
+    }
+  }
+}
+
+// -------------------------------------
+// 5. Utilities: alignment (row level)
+// -------------------------------------
+.justify-content-start { justify-content: flex-start !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-end { justify-content: flex-end !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-around { justify-content: space-around !important; }
+
+.align-items-start { align-items: flex-start !important; }
+.align-items-center { align-items: center !important; }
+.align-items-end { align-items: flex-end !important; }
+
+// -------------------------------------
+// 6. Full width column
+// -------------------------------------
+.col {
+  flex-grow: 1;
+  flex-basis: 0;
+  max-width: 100%;
+}
+
+// -------------------------------------
+//Text align classes
+// -------------------------------------
+.left{ text-align: left; }
+.center{ text-align: center; }
+.right{ text-align: right; }
+
+// -------------------------------------
+// Padding & Margin color classes
+// -------------------------------------
+.p-1{ padding: 15px; }
+.p-2{ padding: 30px; }
+.p-3{ padding: 45px; }
+.p-4{ padding: 60px; }
+.p-5{ padding: 75px; }
+
+.m-1{ margin: 15px; }
+.m-2{ margin: 30px; }
+.m-3{ margin: 45px; }
+.m-4{ margin: 60px; }
+.m-5{ margin: 75px; }
+
+
+
